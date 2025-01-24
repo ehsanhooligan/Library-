@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Library Borrow Form</title>
+    <style>
+        img.one {
+            height: 10%;
+            width: 10%;
+        }
+
+        .container {
+            width: 900px;
+            border: 1px solid darkblue;
+            padding: 10px;
+            margin: 20px auto;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .div1 {
+            width: 100%;
+            height: auto;
+            background-color: rgba(34, 37, 34, 0.603);
+            border: 1px solid darkblue;
+            margin-bottom: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .div2 {
+            width: 30%;
+            height: 150px;
+            background-color: rgb(0, 0, 0);
+            border: 1px solid darkblue;
+            margin-bottom: 10px;
+        }
+
+        .div-half {
+            width: 48%;
+            height: auto;
+            background-color: rgba(45, 48, 46, 0.603);
+            border: 1px solid darkblue;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .div3, .div5 {
+            width: 48%;
+            height: 400px;
+            background-color: rgb(182, 187, 181);
+            border: 1px solid darkblue;
+            margin-bottom: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            height: auto;
+            gap: 20px;
+        }
+
+        input[type="text"], input[type="number"], input[type="date"], select {
+            width: 90%;
+            font-size: 12px;
+            padding: 5px;
+            margin-bottom: 8px;
+        }
+
+        .radio-group label {
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            font-size: 12px;
+            padding: 5px 10px;
+        }
+
+        header {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left; /* Align text to the left */
+        }
+
+        header .name {
+            font-size: 14px;
+            font-weight: bold; /* Make the name bold */
+        }
+
+        ul.token-list {
+            list-style-type: disc;
+            margin: 0;
+            padding: 0 20px;
+        }
+
+        ul.token-list li {
+            cursor: pointer;
+            padding: 5px;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        ul.token-list li:hover {
+            background-color: #d9f1ff;
+        }
+
+        h3 {
+            margin: 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        #selectedToken {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span>20-441141-2</span><br>
+        <span class="name">Miah Md Amimul Ehsan</span>
+    </header>
+
+    <div class="container">
+        <div class="div1">
+            <h3>Available Books</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <thead>
+                    <tr style="border-bottom: 1px solid black;">
+                        <th style="padding: 8px;">Book Name</th>
+                        <th style="padding: 8px;">Author Name</th>
+                        <th style="padding: 8px;">Category</th>
+                        <th style="padding: 8px;">Available Quantity</th>
+                    </tr>
+                </thead>
+                <tbody id="availableBooks">
+                    <tr>
+                        <td style="padding: 8px;">The Great Gatsby</td>
+                        <td style="padding: 8px;">F. Scott Fitzgerald</td>
+                        <td style="padding: 8px;">Fiction</td>
+                        <td style="padding: 8px;">5</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">Pride and Prejudice</td>
+                        <td style="padding: 8px;">Jane Austen</td>
+                        <td style="padding: 8px;">Romance</td>
+                        <td style="padding: 8px;">3</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">1984</td>
+                        <td style="padding: 8px;">George Orwell</td>
+                        <td style="padding: 8px;">Dystopian</td>
+                        <td style="padding: 8px;">4</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">Leaves of Grass</td>
+                        <td style="padding: 8px;">Walt Whitman</td>
+                        <td style="padding: 8px;">Poetry</td>
+                        <td style="padding: 8px;">2</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">To Kill a Mockingbird</td>
+                        <td style="padding: 8px;">Harper Lee</td>
+                        <td style="padding: 8px;">Classic</td>
+                        <td style="padding: 8px;">6</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="div1"></div>
+        <div class="div1"></div>
+        <div class="row">
+            <div class="div-half">
+                <h3>Token</h3>
+                <ul class="token-list" id="tokenList">
+                </ul>
+            </div>
+            <div class="div-half">
+                <h3>Selected Token</h3>
+                <p id="selectedToken">None</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="div2">
+                <img src="9780439139595.jpg" alt="Harry Potter and the Goblet of Fire" style="width: 100%; height: 100%;">
+            </div>
+            <div class="div2">
+                <img src="91Q8YfcIqKL._SL1500_.jpg" alt="Harry Potter and the Order of the Phoenix" style="width: 100%; height: 100%;">
+            </div>
+            <div class="div2">
+                <img src="harry01english-05b4fdcc910a4ae199b34d9cb99e3db6.webp" alt="Harry Potter and the Philosopher's Stone" style="width: 100%; height: 100%;">
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="div3">
+                <form id="borrowForm" action="process.php" method="post">
+                    <label for="username">Student Full Name:</label>
+                    <input type="text" name="username" id="username" required>
+                    <br>
+
+                    <label for="id">Student AIUB ID:</label>
+                    <input type="text" name="id" id="id" required>
+                    <br>
+
+                    <label for="book_title">Book Title:</label>
+                    <input type="text" name="book_title" id="book_title" required>
+                    <br>
+
+                    <label for="bdate">Borrow Date:</label>
+                    <input type="date" name="bdate" id="bdate" required>
+                    <br>
+
+                    <label for="token">Token:</label>
+                    <input type="text" name="token" id="token" required>
+                    <br>
+
+                    <label for="rdate">Return Date:</label>
+                    <input type="date" name="rdate" id="rdate" required>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>Paid:</label>
+                        <input type="radio" id="paid_yes" name="paid" value="1">
+                        <label for="paid_yes">Yes</label>
+                        <input type="radio" id="paid_no" name="paid" value="2">
+                        <label for="paid_no">No</label>
+                    </div>
+
+                    <br><br>
+                    <input type="submit" value="Borrow">
+                </form>
+            </div>
+            <div class="div5">
+                <!-- Add Book Form -->
+                <form id="bookForm" action="process_book.php" method="post">
+                    <label for="book_name">Book Name:</label>
+                    <input type="text" name="book_name" id="book_name" required>
+                    <br>
+
+                    <label for="author_name">Author Name:</label>
+                    <input type="text" name="author_name" id="author_name" required>
+                    <br>
+
+                    <label for="isbn">ISBN Number:</label>
+                    <input type="text" name="isbn" id="isbn" required>
+                    <br>
+
+                    <label for="count">Count (Number of Books Available):</label>
+                    <input type="number" name="count" id="count" required min="1">
+                    <br>
+
+                    <label for="category">Categories:</label>
+                    <select name="category" id="category" required>
+                        <option value="fiction">Fiction</option>
+                        <option value="nonfiction">Non-Fiction</option>
+                        <option value="science">Science</option>
+                        <option value="history">History</option>
+                        <option value="biography">Biography</option>
+                    </select>
+                    <br>
+
+                    <input type="submit" value="Add Book">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load tokens from JSON and populate token list
+        fetch('token.json')
+            .then(response => response.json())
+            .then(data => {
+                const tokenList = document.getElementById('tokenList');
+                data.token.forEach(token => {
+                    const tokenItem = document.createElement('li');
+                    tokenItem.textContent = token;
+                    tokenItem.addEventListener('click', () => {
+                        document.getElementById('selectedToken').textContent = token;
+                        document.getElementById('token').value = token;
+                    });
+                    tokenList.appendChild(tokenItem);
+                });
+            })
+            .catch(error => console.error('Error loading tokens:', error));
+
+        // Fetch available books and populate the table
+        fetch('available_books.json')
+            .then(response => response.json())
+            .then(data => {
+                const availableBooks = document.getElementById('availableBooks');
+                data.books.forEach(book => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${book.name}</td>
+                        <td>${book.author}</td>
+                        <td>${book.category}</td>
+                        <td>${book.quantity}</td>
+                    `;
+                    availableBooks.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error loading available books:', error));
+    </script>
+</body>
+</html>
+
+
